@@ -21,7 +21,7 @@
 <a id="switch" class="switch" href="#">Switch view</a>
 <script>
   var DESKTOP_LINK = "https://app.powerbi.com/view?r=eyJrIjoiOTU4MWY0MmUtNWRlZS00Mzk4LWIyZmItNDhkZGU4NTg3OTc3IiwidCI6ImFhNDMyMzlkLTIzYWItNDk2Yi1iZjc3LWNmZTA3Y2UyMWRmZCJ9";
-  var PHONE_LINK = "PHONE_LINK";
+  var PHONE_LINK = "https://app.powerbi.com/view?r=eyJrIjoiOTI4NmMxMWQtOGU3NS00OGU0LThkMjEtMjI2MzYxMGJkODRjIiwidCI6ImFhNDMyMzlkLTIzYWItNDk2Yi1iZjc3LWNmZTA3Y2UyMWRmZCJ9";
   var params = new URLSearchParams(location.search);
   var wantPhone = params.get("view") ? params.get("view") === "phone" : window.innerWidth < 700;
   if (PHONE_LINK === "PHONE_LINK") { wantPhone = false; }  // until the phone report has its link
