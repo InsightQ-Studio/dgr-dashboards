@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Goodwill North Texas · Job postings and hiring</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #EBF0F9; font-family: "Segoe UI", Helvetica, Arial, sans-serif; }
+  iframe { border: 0; width: 100%; height: 100%; display: block; }
+  .switch { position: fixed; right: 10px; bottom: 10px; font-size: 12px; background: #fff; border: 1px solid #C9D3E0;
+            border-radius: 6px; padding: 6px 10px; color: #1A4790; text-decoration: none; }
+</style>
+</head>
+<body>
+<!--
+  One link for everyone. On a phone (a narrow screen) it shows the phone-shaped public report; on a computer or tablet,
+  the full-width public report. Works on its own page and inside a SharePoint Embed web part (it measures the space it is given).
+  Replace PHONE_LINK once the phone report has its own Publish to web link.
+-->
+<iframe id="report" title="Job postings and hiring" allowfullscreen></iframe>
+<a id="switch" class="switch" href="#">Switch view</a>
+<script>
+  var DESKTOP_LINK = "https://app.powerbi.com/view?r=eyJrIjoiOTU4MWY0MmUtNWRlZS00Mzk4LWIyZmItNDhkZGU4NTg3OTc3IiwidCI6ImFhNDMyMzlkLTIzYWItNDk2Yi1iZjc3LWNmZTA3Y2UyMWRmZCJ9";
+  var PHONE_LINK = "PHONE_LINK";
+  var params = new URLSearchParams(location.search);
+  var wantPhone = params.get("view") ? params.get("view") === "phone" : window.innerWidth < 700;
+  if (PHONE_LINK === "PHONE_LINK") { wantPhone = false; }  // until the phone report has its link
+  document.getElementById("report").src = wantPhone ? PHONE_LINK : DESKTOP_LINK;
+  var sw = document.getElementById("switch");
+  sw.textContent = wantPhone ? "Computer view" : "Phone view";
+  sw.href = "?view=" + (wantPhone ? "computer" : "phone");
+  if (PHONE_LINK === "PHONE_LINK") { sw.style.display = "none"; }
+</script>
+</body>
+</html>
